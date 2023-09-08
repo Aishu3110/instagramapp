@@ -15,7 +15,7 @@ import { Container,  Button, Link, Grid } from '@mui/material';
 // import Carousel from 'react-material-ui-carousel'
 import { useNavigate } from "react-router-dom";
 import { useState,useEffect,useRef } from 'react';
-import axios from "axios";
+
 
 export default function Login() {
   const [firstname, setfirstname] = useState("");
@@ -30,7 +30,7 @@ const [email, setemail] = useState("");
     let localdata = JSON.parse(localStorage.getItem("formData"));
     console.log(localdata);
     if (localdata) {
-      console.log("user")
+      console.log("formData")
       let user = localdata.find((item) => item.firstname === firstname);
       if (user.firstname === firstname && user.email === email) {
         navigate("/home");
@@ -96,7 +96,7 @@ const [email, setemail] = useState("");
         {/* <Image/>  */}
       </div>
       <TextField
-      placeholder="firstName"
+      placeholder="firstname"
       fullWidth
       margin="normal"
       value={firstname} 

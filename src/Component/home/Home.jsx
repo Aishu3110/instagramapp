@@ -17,7 +17,7 @@ export default function Home() {
     <Main/>
         </Grid>
         <Grid Item sx={4}>
-<>2</>
+<></>
         </Grid>
         <Pfeed/>
     

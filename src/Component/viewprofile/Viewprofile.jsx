@@ -6,10 +6,10 @@ const Userprofile = ({ user }) => {
     <Card>
       <CardContent>
         <Typography variant="h6">
-          {user.firstName} {user.lastName}
+          {/* {user.firstName} {user.lastName} */}
         </Typography>
         <Typography variant="body2">
-          Email: {user.email}
+          {/* Email: {user.email} */}
         </Typography>
       </CardContent>
     </Card>
