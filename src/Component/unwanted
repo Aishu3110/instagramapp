@@ -34,7 +34,7 @@
 //           .catch((error) => console.log(error));
 //       };
 //   return (
-//     <>
+<!-- //     <>
 //     <Container maxWidth="md">
 //       <Grid container spacing={2}>
 //         {userdata.map((user) => (
@@ -144,4 +144,37 @@
           <img src="http://www.icons101.com/icon_png/size_256/id_76704/Google_Settings.png" />
         }
       />
-    </AutoRotatingCarousel> */}
+    </AutoRotatingCarousel> */} -->
+
+
+
+    // try {
+      //   const res = await axios.get("https://dummyapi.io/data/v1/user/",{
+      //     headers: {
+      //       'app-id': '64f80cc1b1fe5f13f06ddeae',
+      //     },
+      //   }, {
+      //     firstName: firstName.current.value,
+      //     email: email.current.value,
+      //   });
+      //   navigate('/home');
+      // } catch (err) {
+      //   console.log(err.response.data.message, "Warning", 3000);
+      // }
+
+      // useEffect(() => {
+        //   const data = axios
+        //     .get("https://dummyapi.io/data/v1/user?limit=10", {
+        //       headers: { "app-id": "64d37bc2da1a1ec838917663" },
+        //     })
+        //     .then((response) => setusers(response.data.data));
+        //   console.log(data);
+        // }, []);
+
+        // const Image= styled("div1")({
+          //   height:'25ch',
+          //   backgroundImage:`url(https://static.cdninstagram.com/rsrc.php/v3/yx/r/WtxJZZ3-9ZP.png)`,
+          //   backgroundSize: "cover",
+          //   backgroundRepeat: "no-repeat",
+          //   alt:"insta image"
+          // })

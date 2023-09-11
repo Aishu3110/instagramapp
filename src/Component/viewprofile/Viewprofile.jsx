@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
 
-const Userprofile = ({ user }) => {
+
+const Userprofile = ({  }) => {
   return (
     <Card>
       <CardContent>

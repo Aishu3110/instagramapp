@@ -1,15 +1,18 @@
 import React from 'react'
 import { useState } from 'react';
-import {Container,CssBaseline,TextField,Button,Grid,Link,Typography} from '@mui/material';
+import {Container,CssBaseline,TextField,Button,Grid,Link,Typography, CardMedia,ImageListItem} from '@mui/material';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { styled } from "@mui/system";
+import FacebookIcon from '@mui/icons-material/Facebook';
+import Divider from '@mui/material/Divider';
 // import { NotificationManager } from "react-notifications";
 
 
 export default function Signup() {
   const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     email: "",
 });
 
@@ -66,55 +69,109 @@ export default function Signup() {
       //     localStorage.setItem("userdata", JSON.stringify([userdata]));
       // }
   };
+  const Background1 = styled("div")({
+    position: "absolute",
+    backgroundImage: `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv1J2U9a7vhuWo-LTkNIyVAWYiiTxYkPbq0A&usqp=CAU)`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  });
     const navigate = useNavigate()
   return (
     <>
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div style={{width:'500px' ,height:'600px', display: 'flex', flexDirection: 'column', alignItems: 'center',marginTop:'100px', border:'2px solid black'}}>
-        <form onSubmit={handleSubmit}  style={{ width: '400px', marginTop: '50px' ,flexDirection: 'column'}}>
+      <CardMedia sx={{height:900,width:400,justifyContent:'flex-end', mt:2}}>
+      <CardMedia sx={{height:670,width:400,justifyContent:'flex-end', border:1,borderColor:'gray'}}>
+      <ImageListItem sx={{width:250,height:100,justifyContent:'center',ml:5}}>
+        <Background1 component='img' sx={{ width: 250, height: 120,mt:5,}}/></ImageListItem>
+        <CardMedia sx={{height:500,width:300,justifyContent:'flex-end', mt:20,ml:5}}>
+        <Grid container sx={{ display: 'flex', alignItems: 'center', mt:3}}>
+        <CardMedia >
+          <Typography sx={{fontSize:18,color:'gray'}}>Sign up to see photos and videos from your friends.</Typography>
+          
+        </CardMedia>
+      <Grid item xs mt={1}>
+        <Button variant='contained'>
+        <FacebookIcon />
+        <Typography href="https://www.facebook.com/" underline="none"  style={{ verticalAlign: 'top' }}>
+          Log in with Facebook
+        </Typography>
+        </Button>
+      </Grid>
+    </Grid>
+    <Grid container direction="row" xs={24} mt={1} mr={3} sx={{ width: '100%',alignItems: 'center'}}>
+<Grid item xs >
+<Divider  />
+</Grid>
+<Grid item xs>
+<Typography>OR</Typography>
+</Grid>
+<Grid item xs>
+<Divider/></Grid>
+{/* <Divider>OR</Divider> */}
+</Grid>
+        <form onSubmit={handleSubmit} >
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={12}>
-                <TextField placeholder="Enter username"
+            <Grid item xs={12} sm={12} size='small'>
+                <TextField 
+                fullWidth
+                placeholder="Enter username"
                         type="text"
                         required
-                        value={formData.firstname}
+                        value={formData.firstName}
                 onChange={(e) =>
-                  setFormData({ ...formData, firstname: e.target.value })}/>
+                  setFormData({ ...formData, firstName: e.target.value })}/>
             </Grid><br></br>
             <Grid item xs={12} sm={12}>
-            <TextField placeholder="lastname" type="text" required value={formData.lastname}
+            <TextField fullWidth placeholder="Enter lastName" type="text" required value={formData.lastName}
                 onChange={(e) =>
-                  setFormData({ ...formData, lastname: e.target.value })} />
+                  setFormData({ ...formData, lastName: e.target.value })} />
             </Grid>
             <Grid item xs={12}>
-            <TextField placeholder="Enter mail id" type="email"
+            <TextField fullWidth placeholder="Enter mail id" type="email"
                     required
                         value={formData.email}
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })}  />
             </Grid>
           </Grid>
+          <Typography sx={{fontSize:13,color:'gray',mt:2}}>
+          People who use our service may have uploaded your contact information to Instagram. Learn more
+          </Typography>
+          <Typography variant="body2" color="textSecondary" align="center" sx={{mt:1}}>
+            By signing up, you agree to our <Link href="#">Terms</Link> and <Link href="#">Privacy Policy</Link>.
+          </Typography>
           <Button
+          fullWidth
             type="submit"
             variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            sx={{ mt: 1, mb: 2 }}
             // onClick={() => navigate('/')}
           >
             Sign Up
           </Button>
-          <Grid container justifyContent="flex-end">
-          <Typography variant="body2" color="textSecondary" align="center" sx={{mt:5}}>
-            By signing up, you agree to our <Link href="#">Terms</Link> and <Link href="#">Privacy Policy</Link>.
-          </Typography>
-          <Grid item sx={{mt:7}}>
-              <h1 href="#" variant="body2" >
-                "Don't have an account? <Button onClick={()=>navigate('/')} variant='outlined'>{"Login"}</Button>
-              </h1>
-      </Grid>
-          </Grid>
         </form>
-      </div>
+      </CardMedia>
+      </CardMedia>
+      <CardMedia sx={{height:70,width:400, border:1, mt:1,borderColor:'gray'}}>
+    <Grid item sx={{mt:2}}>
+              <Typography >
+                Have an account? <Button onClick={()=>navigate('/')} >{"Log in"}</Button>
+              </Typography>
+      </Grid>
+      </CardMedia>
+      <CardMedia>
+        <Typography sx={{mt:2}}>Get the app</Typography>
+        <Grid container spacing={1} direction='row' alignItems='center'justifyContent='center' sx={{mt:1,mr:3}} >
+          <Grid sx>
+            <CardMedia sx={{ width: 160 }} component="img" image="https://static.cdninstagram.com/rsrc.php/v3/yz/r/c5Rp7Ym-Klz.png"/>
+          </Grid>
+          <Grid sx>
+          <CardMedia sx={{ width: 140 }} component="img" image="https://static.cdninstagram.com/rsrc.php/v3/yu/r/EHY6QnZYdNX.png"/>
+          </Grid>
+        </Grid>
+      </CardMedia>
+      </CardMedia>
     </Container>
    
     </>

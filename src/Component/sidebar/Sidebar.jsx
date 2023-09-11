@@ -1,118 +1,54 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
+import HomeIcon from '@mui/icons-material/Home';
+import SearchIcon  from '@mui/icons-material/Search';
+import ExploreIcon from '@mui/icons-material/Explore';
+import SmartDisplayIcon from '@mui/icons-material/SmartDisplay';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import CreateIcon from '@mui/icons-material/Create';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Typography from '@mui/material/Typography';
 import MessageIcon from '@mui/icons-material/Message';
+import { CardMedia } from '@mui/material';
+import { styled } from "@mui/system";
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
 
-Sidebar.propTypes = {
-  
-    window: PropTypes.func,
-  };
-  export default function Sidebar(props){
-    const { window } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
-  
-    const handleDrawerToggle = () => {
-      setMobileOpen(!mobileOpen);
-    };
-    
-    const drawer = (
-        <div>
-            <Box
-component="img"
-sx={{
-height: 100,
-width: 250,
-maxHeight: { xs: 233, md: 167 },
-maxWidth: { xs: 350, md: 250 },
-}}
-alt="insta logo"
-src="https://assets.turbologo.com/blog/en/2019/09/19084953/instagram-logo-illustration-958x575.png"
-/>
-          <Toolbar />
-          <Divider />
-          <List>
-            {['Home', 'Search', ' Explore', 'Reels'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-          <List>
-            {[' Messages', 'Notifications', 'Create', 'Profile'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <MessageIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-        </div>
-      );
-      const container = window !== undefined ? () => window().document.body : undefined;
+  export default function Sidebar(){
+
+    const Background1 = styled("div")({
+    position: "absolute",
+    backgroundImage: `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv1J2U9a7vhuWo-LTkNIyVAWYiiTxYkPbq0A&usqp=CAU)`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  });
+
 return(
     <>
-    <Box sx={{ display: 'flex' }}>
-  <CssBaseline />
-  <AppBar
-    position="fixed"
-    
-  >
-  </AppBar>
-  <Box
-    component="nav"
-    sx={{  flexShrink: { sm: 0 } }}
-    aria-label="mailbox folders"
-  >
-    <Drawer
-      container={container}
-      variant="temporary"
-      open={mobileOpen}
-      onClose={handleDrawerToggle}
-      ModalProps={{
-        keepMounted: true, 
-      }}
-      sx={{
-        display: { xs: 'block', sm: 'none' },
-        '& .MuiDrawer-paper': { boxSizing: 'border-box',  },
-      }}
-    >
-      {drawer}
-    </Drawer>
-    <Drawer
-      variant="permanent"
-      sx={{
-        display: { xs: 'none', sm: 'block' },
-        '& .MuiDrawer-paper': { boxSizing: 'border-box',  },
-      }}
-      open
-    >
-      {drawer}
-    </Drawer>
-  </Box>
-</Box></>
+      <Grid container xs direction='column' spacing={2} sx={{borderRight:"1px solid gray",mt:0,height:830,width:300,position:'fixed'}}>
+    <Grid  >
+        <Background1 itemcomponent='img' sx={{ width: 280, height: 150,mt:2}}/>
+    </Grid>
+    <Grid item variant="h3" direction="column" spacing={2} sx={{mt:20,fontSize: 12,fontWeight: 500}}>
+      <Grid sx={{mr:35,mt:5}}>
+        <Button  startIcon={<HomeIcon />}fullWidth>Home</Button></Grid>
+        <Grid sx={{mr:33,mt:1}}><Button  startIcon={<SearchIcon />}fullWidth>Search</Button></Grid>
+        <Grid sx={{mr:32, mt:1}}><Button startIcon={<ExploreIcon />}fullWidth>Explore</Button></Grid>
+        <Grid sx={{mr:34, mt:1}}><Button startIcon={<SmartDisplayIcon />}fullWidth>Reels</Button></Grid>
+        <Grid sx={{mr:32, mt:1}}><Button startIcon={<MessageIcon />}fullWidth>Message</Button></Grid>
+        <Grid sx={{mr:29, mt:1}}><Button startIcon={<NotificationsIcon  />}fullWidth>Notification</Button></Grid>
+        <Grid sx={{mr:34, mt:1}}><Button startIcon={<CreateIcon  />}fullWidth>Create</Button></Grid>
+        <Grid sx={{mr:33, mt:1}}><Button startIcon={<AccountCircleIcon />}fullWidth>Profile</Button></Grid>
+    </Grid>
+    <Grid item sx={{border:"1px solid pink",width:338,height:230}}>
+        <>1</>
+    </Grid> 
+    </Grid>
+     <List sx={{fontSize:100, width:300}} >
+            
+            </List>
+    </>
 )
 }

@@ -3,25 +3,54 @@ import Main from "../main/Main";
 import Sidebar from "../sidebar/Sidebar";
 import React from 'react'
 import Grid from '@mui/material/Grid'
-import Pfeed from "../pfeed/Pfeed";
+// import Pfeed from "../pfeed/Pfeed";
+import { styled } from "@mui/system";
+// import clsx from "clsx";
+import Postfeed from "../Post/Postfeed";
+import Homeprofile from "../homepro/Homeprofile";
+const style1 = styled({
+  container: {
+    height: "100%", 
+    minHeight: 150, 
+    border: "1px solid black",
+  },
+  containerTall: {
+    minHeight: 250 
+  }
+});
 
 export default function Home() {
+  const classes = style1();
+ 
   return (
     <>
-    <Grid rowSpacing={2} direction="row" sx={{display: 'flex'}} >
-        <Grid Item xs={4} sx={{width:400}}>
+     <Grid container direction="row" spacing={2}>
+      <Grid item xs>
+      <Sidebar/>
+      </Grid>
+        <Grid item xs>
+        {/* <Main /> */}
+<Postfeed/>
+        </Grid>
+      <Grid item xs>
+      <Homeprofile/>
+        <div className={classes.container}></div>
+      </Grid>
+    </Grid>
+    {/* <Grid container rowSpacing={2} direction="row">
+        <Grid Item xs={3} sx={{width:400}}>
         <Sidebar/>
         </Grid>
     </Grid>
-    <Grid Item xs={4} sx={{width:700}}>
+    <Grid Item xs={5} sx={{width:500}}>
     <Main/>
         </Grid>
-        <Grid Item sx={4}>
+        <Grid Item sx={3}>
 <></>
         </Grid>
         <Pfeed/>
     
-    {/* <Feed/> */}
+    <Feed/> */}
     </>
   )
 }
